@@ -1,0 +1,37 @@
+program Quadratic_Roots;
+Var a,b,c,d,x,y,Re,Im:real;
+ 
+BEGIN
+  writeln('ax2+bx+c=0. Let''s find the roots. Please enter a,b,c');
+  readln(a,b,c);
+  if a=0 then
+      begin
+         if (b=0) then
+             begin
+               if (c=0) then writeln('Infinite')
+               else  writeln('No solution, sorry dude')
+             end
+         else writeln('Solution is x=',-c/b:2:2);
+      end
+  else
+     begin
+      d:=b*b-4*a*c;
+      if d>0 then
+        begin
+           x:=(-b-sqrt(d))/(2*a);
+           y:=(-b+sqrt(d))/(2*a);
+           writeln('Yes! We have two real solutions, x=',x:2:2 , ' and y=',y:2:2);
+        end
+      else
+        begin
+        if d=0 then writeln('Yes! We have one solution; x=',-b/(2*a):2:2)
+        else
+          begin
+              Re:=-b/(2*a);
+              Im:=sqrt(-d)/(2*a);
+             writeln('Yes! We have two complex solutions! x=',Re:2:2,'-i',Im:2:2, ' and y=' ,Re:2:2,'+i',Im:2:2);
+          end;
+         end;
+end;
+readln
+END.
